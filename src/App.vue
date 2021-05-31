@@ -1,6 +1,18 @@
 <template>
   <h1>Bienvenido al curso de Vue</h1>
-  <p>{{ message }}</p>
+  <div class=“notas”>
+
+  <nav>
+
+  <ul>
+
+  <li  v-bind:key="nota.titulo" v-for="nota in notas"> {{nota.titulo}} </li>
+
+  </ul>
+
+  </nav>
+
+  </div>
 </template>
 
 <script>
@@ -8,7 +20,7 @@ export default {
   name: "App",
   data: function() {
     return {
-      message: "Hello World",
+      notas: [{ titulo: "prueba 1" }, { titulo: "prueba 2" }]
     };
   },
 };
