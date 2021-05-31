@@ -16,6 +16,6 @@ test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de
 
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
-    expect(item.text()).toBe(notas[i].titulo)
+    expect(item.text()).toBe(notas[i].titulo);
   }
 });
