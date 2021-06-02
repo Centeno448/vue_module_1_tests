@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import App from "@/App.vue";
 
-test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de que App.vue defina en su función data la propiedad "notas", y que el titulo de los elementos sea desplegado en una lista', async () => {
+test('App.vue recibe el parametro "notas" en la función data() | Asegúrate de que App.vue defina una variable notas dentro de su funcion data', async () => {
   const notas = [{ titulo: "testing 12" }, { titulo: "testing 13" }];
 
   const dataChecker = mount(App);
@@ -9,6 +9,11 @@ test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de
   await dataChecker.setData({notas: notas});
 
   dataChecker.unmount();
+});
+
+
+test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de que App.vue defina en su función data la propiedad "notas", y que el titulo de los elementos sea desplegado en una lista', async () => {
+  const notas = [{ titulo: "testing 12" }, { titulo: "testing 13" }];
 
   const wrapper = mount(App, {
     data(){
