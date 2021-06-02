@@ -12,18 +12,16 @@ test('App.vue recibe el parametro "notas" en la función data() | Asegúrate de 
 });
 
 
-test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de que App.vue defina en su función data la propiedad "notas", y que el titulo de los elementos sea desplegado en una lista', async () => {
+test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de que App.vue defina en su función data la propiedad "notas", y que el titulo de los elementos sea desplegado en una lista', () => {
   const notas = [{ titulo: "testing 12" }, { titulo: "testing 13" }];
 
   const wrapper = mount(App, {
     data(){
       return {
-        notas: []
+        notas
       }
     }
   });
-
-  await wrapper.setData({notas: notas});
 
   const listItems = wrapper.findAll("li");
 
