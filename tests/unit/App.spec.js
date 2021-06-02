@@ -4,6 +4,12 @@ import App from "@/App.vue";
 test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de que App.vue defina en su función data la propiedad "notas", y que el titulo de los elementos sea desplegado en una lista', async () => {
   const notas = [{ titulo: "testing 12" }, { titulo: "testing 13" }];
 
+  const dataChecker = mount(App);
+
+  await dataChecker.setData({notas: notas});
+
+  dataChecker.unmount();
+
   const wrapper = mount(App, {
     data(){
       return {
@@ -12,7 +18,7 @@ test('App.vue muestra el titulo de las notas dentro de una lista | Asegúrate de
     }
   });
 
-  await wrapper.setData({notas: notas})
+  await wrapper.setData({notas: notas});
 
   const listItems = wrapper.findAll("li");
 
